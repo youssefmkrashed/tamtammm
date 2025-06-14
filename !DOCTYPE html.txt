@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Letter to Fatma 💌</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom, #ffd1dc, #ffe6f0);
+      background-image: url('https://i.imgur.com/OyJF4hs.png'); /* Optional: subtle hearts */
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #4d004d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #lockScreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    #lockScreen input {
+      padding: 10px;
+      font-size: 18px;
+      margin: 10px;
+    }
+
+    #loveContent {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      max-width: 800px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 0 20px pink;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #e60073;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .hippo-img {
+      width: 200px;
+      margin-bottom: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .heart {
+      font-size: 2rem;
+      animation: pulse 1.5s infinite;
+      color: red;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .letter-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: pink;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .letter-btn:hover {
+      background: hotpink;
+    }
+
+    #loveLetter {
+      display: none;
+      margin-top: 1.5rem;
+      font-style: italic;
+      background: #fff0f5;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ff99cc;
+    }
+
+    audio {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="lockScreen">
+    <h2>Enter the secret passcode 💖</h2>
+    <input type="password" id="passwordInput" placeholder="Enter Password">
+    <button onclick="unlock()">Unlock</button>
+  </div>
+
+  <div id="loveContent">
+    <img src="https://i.imgur.com/kYtD2g1.png" alt="Baby Hippo" class="hippo-img">
+    <h1>To my dearest Fatma 💌</h1>
+    <p>You are the cutest little tomato and this baby hippo has been waddling all day to deliver this special message...</p>
+    <div class="heart">❤️ 💕 ❤️</div>
+    <button class="letter-btn" onclick="showLetter()">Open the Love Letter</button>
+
+    <div id="loveLetter">
+      <p>
+        My sweet Fatma,<br><br>
+        Just like a hippo finds joy in a puddle, I find endless happiness in your presence. Your smile lights up my days, your laugh is the melody of my heart, and your love is the letter I want to read forever.<br><br>
+        With every heartbeat, I send you my love, sealed with a kiss and carried by this chubby little hippo. ❤️🐾💌🍅<br><br>
+        Yours forever,<br>
+        [Your Name]
+      </p>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const correctPassword = "12102005";
+
+    function unlock() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === correctPassword) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("loveContent").style.display = "block";
+      } else {
+        alert("Oops! Wrong password 💔");
+      }
+    }
+
+    function showLetter() {
+      document.getElementById("loveLetter").style.display = "block";
+    }
+  </script>
+</body>
+</html>
